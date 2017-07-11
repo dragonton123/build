@@ -83,7 +83,7 @@ store.dispatch(
     type: "FETCH_REAL",
     payload :new Promise((resolve,reject) => {
       setTimeout(()=>{
-        resolve(axios.get('http://tossaphornserver.esy.es/Amoeba/apireal.php')
+        resolve(axios.get('https://ndxwww.herokuapp.com/apidb.php')
           .then(res => {
             console.log(res.data);
             return res.data })
