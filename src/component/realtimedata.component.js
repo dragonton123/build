@@ -29,7 +29,7 @@ class RealtimedataComponent extends Component{
       },1000);
 
       setInterval(()=>{
-  
+
         this.props.setReal()
       },60000);
     }
@@ -63,7 +63,7 @@ const mapDispatchToprops = (dispatch) =>{
           type: "FETCH_REAL",
           payload :new Promise((resolve,reject) => {
             setTimeout(()=>{
-              resolve(axios.get('http://tossaphornserver.esy.es/Amoeba/apireal.php')
+              resolve(axios.get('https://dyspathetic-februar.000webhostapp.com/apireal.php')
                 .then(res => {
                   console.log(res.data);
                   return res.data })

@@ -68,7 +68,7 @@ store.dispatch(
     type: "FETCH_DB",
     payload :new Promise((resolve,reject) => {
       setTimeout(()=>{
-        resolve(axios.get('http://tossaphornserver.esy.es/Amoeba/apidb.php')
+        resolve(axios.get('https://dyspathetic-februar.000webhostapp.com/apidb.php')
           .then(res => {
             console.log(res.data);
             return res.data })
@@ -83,7 +83,7 @@ store.dispatch(
     type: "FETCH_REAL",
     payload :new Promise((resolve,reject) => {
       setTimeout(()=>{
-        resolve(axios.get('https://ndxwww.herokuapp.com/apidb.php')
+        resolve(axios.get('https://dyspathetic-februar.000webhostapp.com/apireal.php')
           .then(res => {
             console.log(res.data);
             return res.data })
