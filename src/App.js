@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './style/Navstyle.css'
 
 import { Link } from 'react-router-dom';
 class App extends Component {
@@ -10,15 +11,16 @@ class App extends Component {
   render() {
     return (
        <div className="App">
-         <div className="App-header">
-           <img src={logo} className="App-logo" alt="logo" />
-           <h2>Welcome to React</h2>
-         </div>
          <div className="App-intro">
-           <Link to="/">HOME</Link>{' '}
-           <Link to="/a">AAAA</Link> {' '}
-           <Link to="/data">Data</Link> {' '}
-           <Link to="/real">Real</Link>
+         <ul>
+
+          <li><a><Link to="/real">Real</Link></a></li>
+          <li><a><Link to="/data">Data</Link></a></li>
+          <li><a><Link to="/a">Another</Link></a></li>
+          <li><a><Link to="/">HOME</Link></a></li>
+          <li className="logo"><a><Link to="/"><img src={logo} className="App-logo" alt="logo" /></Link></a></li>
+        </ul>
+
            {this.props.children}
          </div>
        </div>
