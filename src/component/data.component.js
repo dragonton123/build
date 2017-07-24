@@ -36,7 +36,7 @@ class DataComponent extends Component {
     },1000);
 
     setInterval(()=>{
-      //this.props.setData()
+      this.props.setData()
     },60000);
   }
   render() {

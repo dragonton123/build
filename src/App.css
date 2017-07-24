@@ -1,16 +1,29 @@
+@import url("./supermarket/stylesheet.css");
+body{
+      font-family: supermarket;
+      font-size: 25px;
+
+      margin: 0px;
+    }
+  .container .page-header form {
+  font-family: supermarket;
+}
+
+
 .App {
   text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 30px;
+
+  height: 70px;
+
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  height: 50px;
   padding: 20px;
+  margin: 0px;
   color: white;
 }
 

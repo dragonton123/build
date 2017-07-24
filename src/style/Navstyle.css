@@ -1,26 +1,30 @@
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #2d1506;
+  display: block;
+  background-color: white;
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+
 }
 
 li {
     float: right;
-    width: 200px;
+    width: 25%;
 }
 
 li a {
     display: block;
-    color: white;
+    color: #584d48;
     text-align: center;
     padding: 10px 20px;
+    font-size: 25px;
+
     text-decoration: none;
 }
 
 li a:hover {
-    background-color: #111;
+    background-color: white;
 }
 li.logo{
     display: block;
