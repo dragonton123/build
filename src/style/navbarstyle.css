@@ -1,0 +1,7 @@
+.ared {
+  color : red;
+}
+.ared:hover{
+  color : green;
+  text-decoration: underline;
+}

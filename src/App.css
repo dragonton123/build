@@ -2,6 +2,8 @@
 body{
       font-family: supermarket;
       font-size: 25px;
+      font-style: #584d48;
+      color: #584d48;
 
       margin: 0px;
     }
@@ -16,15 +18,22 @@ body{
 
 .App-logo {
 
-  height: 70px;
+  height: 50px;
+  margin: -10px;
 
 }
 
 .App-header {
-  height: 50px;
+  height: 70px;
   padding: 20px;
   margin: 0px;
   color: white;
+}
+.App-body{
+  padding-top: 55px;
+}
+.App-sidebar{
+  padding-top: 110px;
 }
 
 .App-intro {

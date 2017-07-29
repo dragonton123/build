@@ -97,7 +97,7 @@ store.dispatch(
 ReactDOM.render(
   <Provider store={store}>
   <ConnectedRouter history={history} >
-    <App>{ routers }</App>
+    <App >{ routers }</App>
   </ConnectedRouter>
   </Provider>, document.getElementById('root')
 );
