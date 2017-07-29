@@ -14,6 +14,7 @@ class DataComponent extends Component {
       this.state = {
        data: '',
        loading: true,
+       tbname: '',
       };
     }
 
@@ -31,12 +32,18 @@ class DataComponent extends Component {
 
 
   componentDidMount(){
+    var tablename = this.props.name;
+    this.props.setData(tablename)
+    this.setState({
+          tbname:tablename
+    });
+
     setInterval(()=>{
       this.setdata()
     },1000);
 
     setInterval(()=>{
-      this.props.setData()
+      this.props.setData(this.state.tbname)
     },60000);
   }
   render() {
@@ -53,20 +60,26 @@ class DataComponent extends Component {
               <td>{user.id}</td>
               <td>{user.data}</td>
               <td>{user.status_pump}</td>
-              <td>{user.status_auto}</td>
             </tr>
           );
         });
         }
+      if(this.props.name != this.state.tbname){
+        var tablename = this.props.name;
+        this.props.setData(tablename)
+        this.setState({
+              tbname:tablename
+        });
+      }
       return (
         <div>
           <div>
+          <div>{this.state.tbname}</div>
           <table>
             <tr>
-              <th>id</th>
-              <th>data</th>
-              <th>status_pump</th>
-              <th>status_auto</th>
+                <th>id</th>
+                <th>data</th>
+                <th>datetime</th>
             </tr>
             {content}
           </table>
@@ -88,12 +101,16 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToprops = (dispatch) =>{
   return{
-      setData: () =>{
+      setData : (value) =>{
         dispatch({
           type: "FETCH_DB",
           payload :new Promise((resolve,reject) => {
             setTimeout(()=>{
-              resolve(axios.get('https://dyspathetic-februar.000webhostapp.com/apidb.php')
+              resolve(axios.get('https://dyspathetic-februar.000webhostapp.com/apidb.php', {
+                    params: {
+                      name: value
+                    }
+                  })
                 .then(res => {
                   console.log(res.data);
                   return res.data })

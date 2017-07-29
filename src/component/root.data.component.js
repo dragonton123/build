@@ -36,12 +36,7 @@ var MenuWrap = React.createClass({
     }
 });
 
-
-
-
-
-
-export default class Demo extends Component {
+class rootData extends Component {
 
 
 
@@ -51,8 +46,13 @@ export default class Demo extends Component {
             currentMenu: 'stack',
             side: 'left',
             hidden: true,
+            name: 'data1'
         };
     };
+    setname(value){
+      this.setState({ name : value});
+
+    }
 
     render() {
         const Menu = BurgerMenu[this.state.currentMenu];
@@ -61,7 +61,7 @@ export default class Demo extends Component {
                 position: 'fixed',
                 width: '36px',
                 height: '30px',
-                left: '36px',
+                left: '20px',
                 top: '60px'
             },
             bmBurgerBars: {
@@ -101,8 +101,8 @@ export default class Demo extends Component {
                     pageWrapId={'page-wrap'}
                     outerContainerId={'outer-container'}
                 >
-                <a eventKey="1" ><Link className="acolor" to="/">HOME</Link></a>
-                <a eventKey="2" href=""><span className="acolor">Location</span></a>
+                <a key="1" onClick={()=>this.setname("data1")}><Link to="/data"className="acolor">DATA1</Link></a>
+                <a key="2" onClick={()=>this.setname("data2")}><Link to="/data"className="acolor">DATA2</Link></a>
                 <a key="3" href=""><span className="acolor">Study</span></a>
                 <a key="4" href=""><span className="acolor">Collections</span></a>
                 <a key="5" href=""><span className="acolor">Credits</span></a>
@@ -116,17 +116,9 @@ export default class Demo extends Component {
                 <div>
                 <Grid>
                   <Row className="show-grid">
-
-                    <Clearfix visibleLgBlock>
-                      <Col visibleLg lg={11} >
-                        <DataComponent/>
+                      <Col className = "tablelayout"visibleLg lg={12} xs={12} >
+                        <DataComponent name={this.state.name}/>
                       </Col>
-                    </Clearfix>
-                    <Clearfix visibleXsBlock>
-                      <Col visibleXs xs={5} >
-                        <DataComponent/>
-                      </Col>
-                    </Clearfix>
                   </Row>
                 </Grid>
                 </div>
@@ -138,3 +130,4 @@ export default class Demo extends Component {
         );
     }
 };
+export default rootData;

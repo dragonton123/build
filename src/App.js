@@ -54,37 +54,6 @@ class App extends Component {
 
            {this.props.children}
 
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-           asdasd<br/>
-
         </div>
        </div>
      );

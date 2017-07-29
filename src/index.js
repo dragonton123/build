@@ -63,20 +63,20 @@ store.dispatch(
   }
 )
 
-store.dispatch(
-  {
-    type: "FETCH_DB",
-    payload :new Promise((resolve,reject) => {
-      setTimeout(()=>{
-        resolve(axios.get('https://dyspathetic-februar.000webhostapp.com/apidb.php')
-          .then(res => {
-            console.log(res.data);
-            return res.data })
-          .catch(err => { throw err; }));
-      },500);
-    })
-  }
-)
+// store.dispatch(
+//   {
+//     type: "FETCH_DB",
+//     payload :new Promise((resolve,reject) => {
+//       setTimeout(()=>{
+//         resolve(axios.get('https://dyspathetic-februar.000webhostapp.com/apidb.php')
+//           .then(res => {
+//             console.log(res.data);
+//             return res.data })
+//           .catch(err => { throw err; }));
+//       },500);
+//     })
+//   }
+// )
 
 store.dispatch(
   {
