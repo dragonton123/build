@@ -1,14 +1,49 @@
+
 span.on {
-  background: rgb(66, 183, 42);
-  border-radius: 50%;
+  background: rgb(183, 10, 56);
+  border-radius: 100%;
   display: inline-block;
-  height: 12px; margin-left:
-  4px; width: 12px;
+  height: 20px;
+  width: 20px;
+  margin-left:4px;
 }
 span.off {
   background: rgb(211, 211, 211);
-  border-radius: 50%;
+  border-radius: 100%;
   display: inline-block;
-  height: 12px;
-  margin-left: 4px; width: 12px;
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
+  padding-top: 10px;
+}
+.Progessbar {
+
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.name{
+  padding-left: 50px;
+  padding-right: 5px;
+  float: left;
+}
+.bar{
+  height: 50px;
+  padding-right: 50px;
+  padding-top: 5px
+}
+.image{
+  height: 1200px;
+  width: 800px;
+}
+.image1{
+  height: 600px;
+  width: 400px;
+}
+
+.fb {
+  align-self: center;
+  background-image: url('../image/farm1.png');
+  height: 1200px;
+  width: 800px;
+  background-size: contain;
 }

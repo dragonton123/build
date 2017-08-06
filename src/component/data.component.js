@@ -43,7 +43,7 @@ class DataComponent extends Component {
     },1000);
 
     setInterval(()=>{
-      this.props.setData(this.state.tbname)
+      //this.props.setData(this.state.tbname)
     },60000);
   }
   render() {
@@ -59,7 +59,7 @@ class DataComponent extends Component {
             <tr key={index}>
               <td>{user.id}</td>
               <td>{user.data}</td>
-              <td>{user.status_pump}</td>
+              <td>{user.date_time}</td>
             </tr>
           );
         });
@@ -106,7 +106,7 @@ const mapDispatchToprops = (dispatch) =>{
           type: "FETCH_DB",
           payload :new Promise((resolve,reject) => {
             setTimeout(()=>{
-              resolve(axios.get('https://dyspathetic-februar.000webhostapp.com/apidb.php', {
+              resolve(axios.get('https://petrological-separa.000webhostapp.com/apidb.php', {
                     params: {
                       name: value
                     }

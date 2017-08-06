@@ -17,6 +17,9 @@ Router
 import {ConnectedRouter,routerMiddleware} from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import routers from './router';
+
+
+
 const history = createHistory();
 const middleware = routerMiddleware(history);
 
@@ -50,18 +53,7 @@ store.dispatch(
     payload: 5
   }
 )
-store.dispatch(
-  {
-    type: "SET_NAME",
-    payload: "TON"
-  }
-)
-store.dispatch(
-  {
-    type: "SET_AGE",
-    payload: 22
-  }
-)
+
 
 // store.dispatch(
 //   {
@@ -83,7 +75,7 @@ store.dispatch(
     type: "FETCH_REAL",
     payload :new Promise((resolve,reject) => {
       setTimeout(()=>{
-        resolve(axios.get('https://dyspathetic-februar.000webhostapp.com/apireal.php')
+        resolve(axios.get('https://petrological-separa.000webhostapp.com/apireal.php')
           .then(res => {
             console.log(res.data);
             return res.data })

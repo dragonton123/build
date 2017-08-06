@@ -46,7 +46,7 @@ class rootData extends Component {
             currentMenu: 'stack',
             side: 'left',
             hidden: true,
-            name: 'data1'
+            name: 'sensor_1'
         };
     };
     setname(value){
@@ -101,10 +101,10 @@ class rootData extends Component {
                     pageWrapId={'page-wrap'}
                     outerContainerId={'outer-container'}
                 >
-                <a key="1" onClick={()=>this.setname("data1")}><Link to="/data"className="acolor">DATA1</Link></a>
-                <a key="2" onClick={()=>this.setname("data2")}><Link to="/data"className="acolor">DATA2</Link></a>
-                <a key="3" href=""><span className="acolor">Study</span></a>
-                <a key="4" href=""><span className="acolor">Collections</span></a>
+                <a key="1" onClick={()=>this.setname("sensor_1")}><Link to="/data"className="acolor">SENSOR 1</Link></a>
+                <a key="2" onClick={()=>this.setname("sensor_2")}><Link to="/data"className="acolor">SENSOR 2</Link></a>
+                <a key="3" onClick={()=>this.setname("sensor_3")}><Link to="/data"className="acolor">SENSOR 3</Link></a>
+                <a key="4" onClick={()=>this.setname("sensor_4")}><Link to="/data"className="acolor">SENSOR 4</Link></a>
                 <a key="5" href=""><span className="acolor">Credits</span></a>
                 <a key="6" href=""><span className="acolor">Data Management</span></a>
                 <a key="7" href=""><span className="acolor">Location</span></a>
@@ -114,7 +114,7 @@ class rootData extends Component {
 
                 </Menu>
                 <div>
-                <Grid>
+                 <Grid>
                   <Row className="show-grid">
                       <Col className = "tablelayout"visibleLg lg={12} xs={12} >
                         <DataComponent name={this.state.name}/>

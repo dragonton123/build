@@ -17,7 +17,7 @@ const navbarInstance = (
   <Navbar className="" fixedTop>
   <Navbar.Header>
     <Navbar.Brand>
-      <div className="logo"><Link to="/"><img src={logo} className="App-logo" alt="logo" /></Link></div>
+      <div className="logo" ><Link to="/"><img src={logo} className="App-logo" alt="logo" /></Link></div>
     </Navbar.Brand>
     <Navbar.Toggle />
   </Navbar.Header>
@@ -28,6 +28,7 @@ const navbarInstance = (
       <NavItem eventKey={2} ><Link to="/a">ANOTHER</Link></NavItem>
       <NavItem eventKey={3} ><Link to="/data">DATA</Link></NavItem>
       <NavItem eventKey={4} ><span className="navItem"><Link to="/real">REAL</Link></span></NavItem>
+      <NavItem eventKey={4} ><span className="navItem"><Link to="/status">STATUS</Link></span></NavItem>
     </Nav>
   </Navbar.Collapse>
 </Navbar>
@@ -43,6 +44,7 @@ class App extends Component {
    }
 
   render() {
+
     return (
        <div className="App">
        <div>
@@ -50,10 +52,10 @@ class App extends Component {
          <div >
          {navbarInstance}
         </div>
-        <div className="App-body" id="page-wrap">
-
+        <div className="App-body" >
+         <div  id="page-wrap">
            {this.props.children}
-
+           </div>
         </div>
        </div>
      );
