@@ -16,6 +16,24 @@ span.off {
   margin-left: 10px;
   padding-top: 10px;
 }
+span.ac1 {
+  background: rgb(124, 211, 112);
+  border-radius: 100%;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
+  padding-top: 10px;
+}
+span.ac2 {
+  background: rgb(211, 83, 88);
+  border-radius: 100%;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
+  padding-top: 10px;
+}
 .Progessbar {
 
     padding-left: 50px;

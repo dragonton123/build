@@ -44,3 +44,12 @@ body{
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.img{
+    vertical-align:middle;
+    width: 1150px;
+    height: 500px;
+}
+.vertical-align:middle;{
+    align-self: center;
+}
+

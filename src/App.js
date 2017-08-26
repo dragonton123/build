@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './image/piangkusol_logo.png';
-import {Clearfix,Grid,Col,Row,Tabs, Tab, TabContainer, TabContent, TabPane, NavItem ,Nav,NavDropdown,Navbar,MenuItem} from 'react-bootstrap';
+import logo from './image/FP logo.png';
+import { NavItem ,Nav,Navbar} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import DataComponent from './component/data.component.js'
@@ -12,27 +12,40 @@ import { Link } from 'react-router-dom';
 import BurgerMenu from 'react-burger-menu';
 import classNames from 'classnames';
 import Demo from './component/Demo.component.js'
-
+const eiei = (
+    <div className="logo" ><Link to="/"><img src={logo} className="App-logo" alt="logo" /></Link></div>
+);
 const navbarInstance = (
   <Navbar className="" fixedTop>
   <Navbar.Header>
     <Navbar.Brand>
-      <div className="logo" ><Link to="/"><img src={logo} className="App-logo" alt="logo" /></Link></div>
+        {eiei}
     </Navbar.Brand>
     <Navbar.Toggle />
   </Navbar.Header>
   <Navbar.Collapse>
 
     <Nav pullRight>
-      <NavItem eventKey={1} ><Link className="ared" to="/">HOME</Link></NavItem>
-      <NavItem eventKey={2} ><Link to="/a">ANOTHER</Link></NavItem>
-      <NavItem eventKey={3} ><Link to="/data">DATA</Link></NavItem>
-      <NavItem eventKey={4} ><span className="navItem"><Link to="/real">REAL</Link></span></NavItem>
-      <NavItem eventKey={4} ><span className="navItem"><Link to="/status">STATUS</Link></span></NavItem>
+      <NavItem eventKey={1} ><Link className="ared" to="/">หน้าแรก</Link></NavItem>
+      <NavItem eventKey={2} ><Link className="ared" to="/a">เพิ่มอุปกรณ์</Link></NavItem>
+      <NavItem eventKey={3} ><Link className="ared" to="/data">เรียกดูสถิติ</Link></NavItem>
+      <NavItem eventKey={4} ><span className="navItem"><Link className="ared" to="/real">ค่าเซนเซอร์</Link></span></NavItem>
+        <NavItem eventKey={5} ><span className="navItem"><Link className="ared"  to="/real">ติดต่อเรา</Link></span></NavItem>
+
+        <NavItem eventKey={6} ><span className="navItem"><Link className="ared" to="/status">ออกจากระบบ</Link></span></NavItem>
     </Nav>
   </Navbar.Collapse>
 </Navbar>
 );
+
+const button = (
+    <div>
+        <Button bsStyle="primary" bsSize="large" active>Primary button</Button>
+        &nbsp;&nbsp;
+        <Button bsStyle="primary" bsSize="large" active>Primary button</Button>
+    </div>
+);
+
 
 
 
@@ -54,7 +67,10 @@ class App extends Component {
         </div>
         <div className="App-body" >
          <div  id="page-wrap">
+
            {this.props.children}
+
+
            </div>
         </div>
        </div>
