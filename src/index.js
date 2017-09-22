@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Login from './login';
 import registerServiceWorker from './registerServiceWorker';
 import {createStore,combineReducers,applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
@@ -18,8 +19,16 @@ import {ConnectedRouter,routerMiddleware} from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import routers from './router';
 
-
-
+var session = localStorage.getItem("session")
+console.log("SESSION : " + session);
+if( session !== null){
+    var jwtDecode = require('jwt-decode');
+    console.log("GG"+ session)
+    var dec = jwtDecode(localStorage.getItem("session"));
+}else{
+    var dec = [];
+}
+console.log(dec);
 const history = createHistory();
 const middleware = routerMiddleware(history);
 
@@ -52,6 +61,12 @@ store.dispatch(
     type: "SUB",
     payload: 5
   }
+)
+store.dispatch(
+    {
+        type:"FETCH_DATAUSER",
+        payload: dec
+    }
 )
 
 
@@ -88,9 +103,10 @@ store.dispatch(
 
 
 ReactDOM.render(
+
   <Provider store={store}>
   <ConnectedRouter history={history} >
-    <App >{ routers }</App>
+    <Login >{ routers }</Login>
   </ConnectedRouter>
   </Provider>, document.getElementById('root')
 );

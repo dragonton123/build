@@ -16,26 +16,24 @@ const eiei = (
     <div className="logo" ><Link to="/"><img src={logo} className="App-logo" alt="logo" /></Link></div>
 );
 const navbarInstance = (
-  <Navbar className="" fixedTop>
-  <Navbar.Header>
-    <Navbar.Brand>
-        {eiei}
-    </Navbar.Brand>
-    <Navbar.Toggle />
-  </Navbar.Header>
-  <Navbar.Collapse>
-
-    <Nav pullRight>
-      <NavItem eventKey={1} ><Link className="ared" to="/">หน้าแรก</Link></NavItem>
-      <NavItem eventKey={2} ><Link className="ared" to="/a">เพิ่มอุปกรณ์</Link></NavItem>
-      <NavItem eventKey={3} ><Link className="ared" to="/data">เรียกดูสถิติ</Link></NavItem>
-      <NavItem eventKey={4} ><span className="navItem"><Link className="ared" to="/real">ค่าเซนเซอร์</Link></span></NavItem>
-        <NavItem eventKey={5} ><span className="navItem"><Link className="ared"  to="/real">ติดต่อเรา</Link></span></NavItem>
-
-        <NavItem eventKey={6} ><span className="navItem"><Link className="ared" to="/status">ออกจากระบบ</Link></span></NavItem>
-    </Nav>
-  </Navbar.Collapse>
-</Navbar>
+    <Navbar className="" fixedTop>
+        <Navbar.Header>
+            <Navbar.Brand>
+                {eiei}
+            </Navbar.Brand>
+            <Navbar.Toggle />
+        </Navbar.Header>
+      <Navbar.Collapse>
+            <Nav pullRight>
+                <NavItem eventKey={1} ><Link className="ared" to="/">หน้าแรก</Link></NavItem>
+                <NavItem eventKey={2} ><Link className="ared" to="/a">เพิ่มอุปกรณ์</Link></NavItem>
+                <NavItem eventKey={3} ><Link className="ared" to="/data">เรียกดูสถิติ</Link></NavItem>
+                <NavItem eventKey={4} ><span className="navItem"><Link className="ared" to="/real">ค่าเซนเซอร์</Link></span></NavItem>
+                <NavItem eventKey={5} ><span className="navItem"><Link className="ared"  to="/real">ติดต่อเรา</Link></span></NavItem>
+                <NavItem eventKey={6} onClick={() => Logout()} ><span className="ared" >ออกจากระบบ</span></NavItem>
+            </Nav>
+      </Navbar.Collapse>
+    </Navbar>
 );
 
 const button = (
@@ -46,12 +44,16 @@ const button = (
     </div>
 );
 
-
+function Logout() {
+    window.localStorage.removeItem("session");
+    window.location.reload();
+}
 
 
 class App extends Component {
 
-  showSettings (event) {
+
+    showSettings (event) {
      event.preventDefault();
 
    }

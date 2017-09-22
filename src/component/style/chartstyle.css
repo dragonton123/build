@@ -1,0 +1,9 @@
+
+.app{
+    text-align : center;
+    align-self: center
+}
+.chart{
+    width: 900px;
+    height:500px;
+}

@@ -3,10 +3,21 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {promise} from 'react-promise';
 import axios from'axios';
-import { Chart } from 'react-google-charts';
-import {Bar, Line, Pie} from 'react-chartjs-2';
-
+import {Button,Grid, Row, Col, Clearfix,Label} from 'react-bootstrap';
+import './style/chartstyle.css'
 //var RadarChart = require("react-chartjs-2").Radar;
+
+const ReactHighcharts = require('react-highcharts');
+
+
+const config = {
+    xAxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    },
+    series: [{
+        data: [29.9, 71.5, 100, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 295.6, 100]
+    }]
+};
 class ChartComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -49,20 +60,16 @@ class ChartComponent extends React.Component {
     render() {
         return (
 
-            <Bar
-                data={this.state.chartData}
-                options={{
-                    title:{
-                        display:this.props.displayTitle,
-                        text:'Largest Cities In '+this.props.location,
-                        fontSize:25
-                    },
-                    legend:{
-                        display:this.props.displayLegend,
-                        position:this.props.legendPosition
-                    }
-                }}
-            />
+           <div>
+               <div>
+                   <Grid>
+                       <Row className="show-grid">
+                           <Col sm={12} lg={12}><ReactHighcharts config = {config}></ReactHighcharts></Col>
+                       </Row>
+                   </Grid>
+               </div>
+               <h1>dd</h1>>
+           </div>
 
             );
     }
