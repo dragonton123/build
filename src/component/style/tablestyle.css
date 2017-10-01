@@ -1,19 +1,20 @@
-table {
+.table {
     border-collapse: collapse;
     width: 100%;
 }
 
-th, td {
+.th, .td {
     text-align: left;
     padding: 8px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+.tr:nth-child(even){background-color: #f2f2f2}
 
-th {
+.th {
     background-color: #4CAF50;
     color: white;
 }
+
 .tablelayout{
   padding-left: 75px;
 }

@@ -1,0 +1,23 @@
+
+.header{
+    text-align : center;
+    font-size: 130%;
+    font-style: inherit;
+    align-items: center;
+    border-radius : 25px;
+    border: 2px solid #73AD21;
+    padding: 20px;
+    width: 50%;
+    height: 80px;
+}
+.chart{
+    align-items: center;
+    width: 600px;
+    height:500px;
+}
+.from{
+    input[type=text] {
+    border: none;
+    border-bottom: 2px solid red;
+}
+}

@@ -1,9 +1,10 @@
 
 .app{
     text-align : center;
-    align-self: center
+    align-items: center;
 }
 .chart{
-    width: 900px;
+    align-items: center;
+    width: 600px;
     height:500px;
 }

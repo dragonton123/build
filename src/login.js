@@ -2,16 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {promise} from 'react-promise';
-// import User from './src/User.js';
 import './App.css';
 import App from './App';
 import LoginComponent from './component/login.component'
-//import './style/Navstyle.css'
 import './style/navbarstyle.css'
-import { Button } from 'react-bootstrap';
-//Router
-
-
 import {ConnectedRouter,routerMiddleware} from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import routers from './router';

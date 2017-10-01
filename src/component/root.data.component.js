@@ -4,6 +4,7 @@ import BurgerMenu from 'react-burger-menu';
 import classNames from 'classnames';
 import './style/sidebarstyle.css';
 import DataComponent from './data.component.js'
+import ChartComponent from './chart.component'
 import { Link } from 'react-router-dom';
 import {Clearfix,Grid,Col,Row,Tabs, Tab, TabContainer, TabContent, TabPane, NavItem ,Nav,Glyphicon} from 'react-bootstrap';
 
@@ -46,12 +47,19 @@ class rootData extends Component {
             currentMenu: 'stack',
             side: 'left',
             hidden: true,
-            name: 'sensor_1'
+            name: 'esp_ss_1',
+            show_name:'SENSOR 1',
+            type: 'chart'
         };
     };
-    setname(value){
-      this.setState({ name : value});
+    setname(value,sh_name){
+      this.setState({     name : value,
+                      show_name: sh_name
+                    });
 
+    }
+    settype(type){
+        this.setState({type: type})
     }
 
     render() {
@@ -90,6 +98,14 @@ class rootData extends Component {
                 background: 'rgba(0, 0, 0, 0.3)'
             }
         };
+        let show;
+        if(this.state.type === "chart"){
+            show = <ChartComponent name={this.state.name} show_name={this.state.show_name}/>
+
+        }else if(this.state.type === "table"){
+            show = <DataComponent name={this.state.name} show_name={this.state.show_name}/>
+
+        }
 
 
         return (
@@ -101,25 +117,28 @@ class rootData extends Component {
                     pageWrapId={'page-wrap'}
                     outerContainerId={'outer-container'}
                 >
-                <a key="1" onClick={()=>this.setname("sensor_1")}><Link to="/data"className="acolor">SENSOR 1</Link></a>
-                <a key="2" onClick={()=>this.setname("sensor_2")}><Link to="/data"className="acolor">SENSOR 2</Link></a>
-                <a key="3" onClick={()=>this.setname("sensor_3")}><Link to="/data"className="acolor">SENSOR 3</Link></a>
-                <a key="4" onClick={()=>this.setname("sensor_4")}><Link to="/data"className="acolor">SENSOR 4</Link></a>
-                <a key="5" href=""><span className="acolor">Credits</span></a>
-                <a key="6" href=""><span className="acolor">Data Management</span></a>
-                <a key="7" href=""><span className="acolor">Location</span></a>
-                <a key="8" href=""><span className="acolor">Study</span></a>
-                <a key="9" href=""><span className="acolor">Collections</span></a>
-                <a key="10" href=""><span className="acolor">Credits</span></a>
-
-                </Menu>
+                <a key="1" onClick={()=>this.setname("esp_ss_1","SENSOR 1")}><Link to="/data"className="acolor">SENSOR 1</Link></a>
+                <a key="2" onClick={()=>this.setname("esp_ss_2","SENSOR 2")}><Link to="/data"className="acolor">SENSOR 2</Link></a>
+                <a key="3" onClick={()=>this.setname("esp_ss_3","SENSOR 3")}><Link to="/data"className="acolor">SENSOR 3</Link></a>
+                <a key="4" onClick={()=>this.setname("esp_ss_4","SENSOR 4")}><Link to="/data"className="acolor">SENSOR 4</Link></a>
+                <a key="5" onClick={()=>this.setname("esp_ss_5","SENSOR 5")}><Link to="/data"className="acolor">SENSOR 5</Link></a>
+                <a key="6" onClick={()=>this.setname("esp_ss_6","SENSOR 6")}><Link to="/data"className="acolor">SENSOR 6</Link></a>
+                <a key="7" onClick={()=>this.setname("esp_ss_7","SENSOR 7")}><Link to="/data"className="acolor">SENSOR 7</Link></a>
+               </Menu>
                 <div>
                  <Grid>
-                  <Row className="show-grid">
-                      <Col className = "tablelayout"visibleLg lg={12} xs={12} >
-                        <DataComponent name={this.state.name}/>
-                      </Col>
-                  </Row>
+                     <Row className="show-grid">
+
+                         <Col className = "tablelayout"visibleLg lg={12} xs={12} >
+                             <button onClick={()=>this.settype('chart')}>กราฟ</button>
+                             <button onClick={()=>this.settype('table')}>ตาราง</button>
+                         </Col>
+                     </Row>
+                     <Row className="show-grid">
+                         <Col className = "tablelayout"visibleLg lg={12} xs={12} >
+                             {show}
+                          </Col>
+                     </Row>
                 </Grid>
                 </div>
 

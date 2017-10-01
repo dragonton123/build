@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
-import logo from './image/FP logo.png';
+import logo from './image/Piangusol_logo.png';
 import { NavItem ,Nav,Navbar} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import DataComponent from './component/data.component.js'
 import './App.css';
-//import './style/Navstyle.css'
+
 import './style/navbarstyle.css'
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import BurgerMenu from 'react-burger-menu';
-import classNames from 'classnames';
-import Demo from './component/Demo.component.js'
-const eiei = (
+const logo_web = (
     <div className="logo" ><Link to="/"><img src={logo} className="App-logo" alt="logo" /></Link></div>
 );
+
 const navbarInstance = (
     <Navbar className="" fixedTop>
         <Navbar.Header>
             <Navbar.Brand>
-                {eiei}
+                {logo_web}
             </Navbar.Brand>
             <Navbar.Toggle />
         </Navbar.Header>

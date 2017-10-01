@@ -55,7 +55,7 @@ class StatusComponent extends React.Component {
 
 
     setrealtimedata(value) {
-        if (value == "1") {
+        if (value === "1") {
 
             return (<span className="on"/>);
         } else {
@@ -64,10 +64,10 @@ class StatusComponent extends React.Component {
     }
 
     setstatusdata(value) {
-        if (value == "1") {
+        if (value === "1") {
 
             return (<span className="ac1"/>);
-        } else if (value == "0") {
+        } else if (value === "0") {
             return (<span className="ac2"/>);
         } else{
             return(<span className="off"/>);
@@ -115,7 +115,7 @@ class StatusComponent extends React.Component {
                 <Row>
                     <Col lg={4}/>
                     <Col lg={1}>
-                        <Label bsStyle="default">{this.props.status.resultstatus.name1}
+                        <Label bsStyle="default">{JSON.stringify(this.props.status.resultstatus.name1)}
                         {this.setrealtimedata(this.props.status.resultstatus.status1)}
                         {this.setstatusdata(this.props.status.resultstatus.status_data1)}</Label>
                     </Col>
@@ -139,9 +139,9 @@ class StatusComponent extends React.Component {
                   <Row>
                     <Col lg={1}/>
                     <Col lg={1}>
-                        <Label bsStyle="default">{this.props.status.resultstatus.name3}
-                        {this.setrealtimedata(this.props.status.resultstatus.status3)}
-                        {this.setstatusdata(this.props.status.resultstatus.status_data3)}</Label>
+                        <Label bsStyle="default">{console.log(this.props.status.resultstatus)}</Label>
+                        {/*{this.setrealtimedata(this.props.status.resultstatus.status3)}*/}
+                        {/*{this.setstatusdata(this.props.status.resultstatus.status_data3)}</Label>*/}
                     </Col>
                     <Col lg={4}/>
                     <Col lg={1}>
@@ -181,7 +181,7 @@ const mapDispatchToprops = (dispatch) =>{
                 type: "FETCH_STATUS",
                 payload :new Promise((resolve,reject) => {
                     setTimeout(()=>{
-                        resolve(axios.get('https://petrological-separa.000webhostapp.com/apistatus.php')
+                        resolve(axios.get('https://petrological-separa.000webhostapp.com/api/status')
                             .then(res => {
                                 console.log(res.data);
                                 return res.data })

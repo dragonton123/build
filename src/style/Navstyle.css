@@ -1,32 +1,32 @@
-.navItem {
-  display: block;
-  background-color: black;
-  padding: 0;
-  list-style-type: none;
-  margin: 0;
-  overflow: hidden;
-  color: #584d48;
+/*.navItem {*/
+  /*display: block;*/
+  /*background-color: black;*/
+  /*padding: 0;*/
+  /*list-style-type: none;*/
+  /*margin: 0;*/
+  /*overflow: hidden;*/
+  /*color: #584d48;*/
 
-}
-
-
-.navbar {
-    color: #584d48;
-    display: block;
-    padding: 0;
-    list-style-type: none;
-    margin: 0;
-    overflow: hidden;
-    background-color: black;
-}
+/*}*/
 
 
-li a:hover {
-    background-color: white;
-}
-li.logo{
-    display: block;
-    float: left;
-    width: 200px;
+/*.navbar {*/
+    /*color: #584d48;*/
+    /*display: block;*/
+    /*padding: 0;*/
+    /*list-style-type: none;*/
+    /*margin: 0;*/
+    /*overflow: hidden;*/
+    /*background-color: black;*/
+/*}*/
 
-}
+
+/*li a:hover {*/
+    /*background-color: white;*/
+/*}*/
+/*li.logo{*/
+    /*display: block;*/
+    /*float: left;*/
+    /*width: 200px;*/
+
+/*}*/
