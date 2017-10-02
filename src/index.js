@@ -19,16 +19,16 @@ import {ConnectedRouter,routerMiddleware} from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import routers from './router';
 //
-// var session = localStorage.getItem("session")
-// console.log("SESSION : " + session);
-// if( session !== null){
-//    // var jwtDecode = require('jwt-decode');
-//     console.log("GG"+ session)
-//     var dec = jwtDecode(localStorage.getItem("session"));
-// }else{
-//     var dec = [];
-// }
-// console.log(dec);
+var session = localStorage.getItem("session")
+console.log("SESSION : " + session);
+if( session !== null){
+   // var jwtDecode = require('jwt-decode');
+    console.log("GG"+ session)
+    var dec = jwtDecode(localStorage.getItem("session"));
+}else{
+    var dec = [];
+}
+console.log(dec);
 const history = createHistory();
 const middleware = routerMiddleware(history);
 
@@ -62,12 +62,12 @@ store.dispatch(
     payload: 5
   }
 )
-// store.dispatch(
-//     {
-//         type:"FETCH_DATAUSER",
-//         payload: dec
-//     }
-// )
+store.dispatch(
+    {
+        type:"FETCH_DATAUSER",
+        payload: dec
+    }
+)
 
 
 
