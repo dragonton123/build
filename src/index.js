@@ -9,7 +9,7 @@ import {Provider} from 'react-redux';
 import axios from 'axios';
 import promise from 'redux-promise-middleware';
 import rootReducer from './reducer/index.js';
-
+import * as jwtDecode from 'jwt-decode';
 //import {promise} from 'react-promise';
 /*
 Router
@@ -22,7 +22,7 @@ import routers from './router';
 var session = localStorage.getItem("session")
 console.log("SESSION : " + session);
 if( session !== null){
-    var jwtDecode = require('jwt-decode');
+   // var jwtDecode = require('jwt-decode');
     console.log("GG"+ session)
     var dec = jwtDecode(localStorage.getItem("session"));
 }else{
