@@ -8,6 +8,7 @@ import axios from'axios';
 import './style/statusstyle.css';
 import {Button,Grid, Row, Col, Clearfix,Label} from 'react-bootstrap';
 
+const url = localStorage.getItem("url");
 
 const button = (
     <div>
@@ -19,32 +20,48 @@ const button = (
 
 class StatusComponent extends React.Component {
  command(name,command){
-     axios.get('https://petrological-separa.000webhostapp.com/apicommand.php', {
+     axios.get(url+'/command', {
          params: {
              name: name,
              command : command
          }
-     });
+     }).then(res => {
+         console.log(res.data.status);
+         if(1){
+             alert("เปิดการจ่ายน้ำสำเร็จ");
+         }else{
+             alert("ไม่สามารถเปิดการจ่ายน้ำได้");
+         } })
+         .catch(err => { throw err; alert("ไม่สามารถเปิดการจ่ายน้ำได้"); });
  }
 
     constructor() {
         super();
         this.state = {
-            data: '',
+            data: {
+                running1 : '0',
+                running2 : '',
+                running3 : '',
+                running4 : '',
+                running5 : '',
+                running6 : '',
+                running7 : '',
+                running8 : '',
+            },
             loading: true,
             tbname: '',
+            sh_name: 'เซนเซอร์'
 
 
         };
     }
     setdata() {
         var myArray = this.props.status.resultstatus;
-        var realdata = this.props.realtimedata.resultreal;
         console.log(myArray);
         this.setState({
             data:myArray,
-            real:realdata,
-            loading: false
+            loading: false,
+
         });
 
     }
@@ -55,33 +72,33 @@ class StatusComponent extends React.Component {
 
 
     setrealtimedata(value) {
-        if (value === "1") {
-
-            return (<span className="on"/>);
+        if (value === '1') {
+            return (<span className="ac1"/>);
         } else {
-            return (<span className="off"/>);
+            return (<span className="ac2"/>);
         }
     }
 
     setstatusdata(value) {
-        if (value === "1") {
+        if (value === "stable") {
 
-            return (<span className="ac1"/>);
-        } else if (value === "0") {
-            return (<span className="ac2"/>);
+            return (<span className="online"/>);
+        } else if (value === "unstable") {
+            return (<span className="offline"/>);
         } else{
-            return(<span className="off"/>);
+            return (<span className="offline"/>);
         }
     }
 
     componentDidMount(){
 
-        this.props.setStatus()
+        this.props.setStatus();
+        setTimeout(this.props.setStatus(),5000);
 
         setInterval(()=>{
-            this.props.setStatus()
-            this.setdata()
-        },10000);
+            this.props.setStatus();
+        console.log('state : '+this.props.status.resultstatus.running1);
+        },60000);
 
         setInterval(()=>{
             //this.props.setData(this.state.tbname)
@@ -92,73 +109,153 @@ class StatusComponent extends React.Component {
 
     return (
 
-        <div>
-            <div>
-                <Button bsStyle="primary" bsSize="large" active onClick={()=>this.command("esp_rl_1","on")}>On button</Button>
-                &nbsp;&nbsp;
-                <Button bsStyle="primary" bsSize="large" active onClick={()=>this.command("esp_rl_1","off")}>Off button</Button>
-            </div>
-
+      <div>
         <Grid>
           <Row>
-            <Col lg={1}>
-            <div className="fb">
+              <Row sm={12} lg={12}>
 
-                <Row>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                </Row>
-                <Row>
-                    <Col lg={4}/>
-                    <Col lg={1}>
-                        <Label bsStyle="default">{JSON.stringify(this.props.status.resultstatus.name1)}
-                        {this.setrealtimedata(this.props.status.resultstatus.status1)}
-                        {this.setstatusdata(this.props.status.resultstatus.status_data1)}</Label>
-                    </Col>
-                    <Col lg={4}/>
-                    <Col lg={1}>
-                        <Label bsStyle="default">{this.props.status.resultstatus.name2}
-                        {this.setrealtimedata(this.props.status.resultstatus.status2)}
-                        {this.setstatusdata(this.props.status.resultstatus.status_data2)}</Label>
-                    </Col>
-                </Row>
-                <Row>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                </Row>
+              </Row >
+              <br/>
+              <Row sm={12} lg={12} className="manualcircle">
                   <Row>
-                    <Col lg={1}/>
-                    <Col lg={1}>
-                        <Label bsStyle="default">{console.log(this.props.status.resultstatus)}</Label>
-                        {/*{this.setrealtimedata(this.props.status.resultstatus.status3)}*/}
-                        {/*{this.setstatusdata(this.props.status.resultstatus.status_data3)}</Label>*/}
-                    </Col>
-                    <Col lg={4}/>
-                    <Col lg={1}>
-                        <Label bsStyle="default">{this.props.status.resultstatus.name4}
-                        {this.setrealtimedata(this.props.status.resultstatus.status4)}
-                        {this.setstatusdata(this.props.status.resultstatus.status_data4)}</Label>
-                    </Col>
+                    <div className="name">สถานะของเซนเซอร์</div>
                   </Row>
+                  <br/>
+                  <Row className="manual_style" >
 
-            </div>
-            </Col>
+                          <Row lg={12}>
+                              <Col lg={6}>
+                                  <div ><span className="online"/> <span className="ac1"/> : เซนเซอร์เชื่อมต่อ ส่งข้อมูลปกติ</div>
+                              </Col>
+                              <Col lg={6}>
+                                  <div ><span className="online"/> <span className="ac2"/> : เซนเซอร์เชื่อมต่อ ไม่ส่งข้อมูล</div>
+                              </Col>
+                          </Row>
+                          <Row lg={12}>
+                              <Col lg={6} >
+                                  <div ><span className="offline"/> <span className="ac1"/> : เซนเซอร์ไม่เชื่อมต่อ ส่งข้อมูลปกติ</div>
+                              </Col>
+                              <Col lg={6}>
+                                  <div ><span className="offline"/> <span className="ac2"/> : เซนเซอร์ไม่เชื่อมต่อ ไม่ส่งข้อมูล</div>
+                              </Col>
+                          </Row>
+
+                  </Row>
+              </Row >
+              <br/>
+              <Row sm={12} lg={12} className="fbcircle">
+                <div className="fb">
+
+                    <Row>
+                        <br/>
+                    </Row>
+                    <Row>
+                        <Col xs={2} sm={2} lg={2}/>
+                        <Col xs={1} sm={1} lg={1}>
+                            <div className="sensor_bg">{this.state.sh_name} 8 :
+                                {this.setstatusdata(this.props.status.results.working8)}
+                                {this.setrealtimedata(this.props.status.results.running8)}
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <br/>
+                        <br/>
+                    </Row>
+                    <Row>
+                        <Col xs={2} sm={2} lg={2}/>
+                        <Col xs={1} sm={1} lg={1}>
+                            <div className="sensor_bg">{this.state.sh_name} 7 :
+                                {this.setstatusdata(this.props.status.results.working7)}
+                                {this.setrealtimedata(this.props.status.results.running7)}
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <br/>
+                        <br/>
+                    </Row>
+                      <Row>
+                        <Col xs={2} sm={2} lg={2}/>
+                        <Col xs={1} sm={1}lg={1}>
+                            <div className="sensor_bg">{this.state.sh_name} 6 :
+                                {this.setstatusdata(this.props.status.results.working6)}
+                                {this.setrealtimedata(this.props.status.results.running6)}
+                            </div>
+                        </Col>
+                      </Row>
+                    <Row>
+                        <br/>
+                        <br/>
+                    </Row>
+                    <Row>
+                        <Col xs={2} sm={2} lg={2}/>
+                        <Col xs={1} sm={1} lg={1}>
+                            <div className="sensor_bg">{this.state.sh_name} 5 :
+                                {this.setstatusdata(this.props.status.results.working5)}
+                                {this.setrealtimedata(this.props.status.results.running5)}
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <br/>
+                        <br/>
+
+                    </Row>
+                    <Row>
+                        <Col xs={2} sm={2} lg={2}/>
+                        <Col xs={1} sm={1} lg={1}>
+                            <div className="sensor_bg">{this.state.sh_name} 4 :
+                                {this.setstatusdata(this.props.status.results.working4)}
+                                {this.setrealtimedata(this.props.status.results.running4)}
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <br/>
+                        <br/>
+                    </Row>
+                    <Row>
+
+                        <Col xs={2} sm={2} lg={2}/>
+                        <Col xs={1} sm={1} lg={1}>
+                            <div className="sensor_bg">{this.state.sh_name} 3 :
+                                {this.setstatusdata(this.props.status.results.working3)}
+                                {this.setrealtimedata(this.props.status.results.running3)}
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <br/>
+                    </Row>
+                    <Row>
+                        <Col xs={3} sm={3} lg={3}/>
+                        <Col xs={1} sm={1} lg={1}>
+                            <div className="sensor_bg">{this.state.sh_name} 2 :
+                                {this.setstatusdata(this.props.status.results.working2)}
+                                {this.setrealtimedata(this.props.status.results.running2)}
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <br/>
+                        <br/>
+                    </Row>
+                    <Row>
+                        <Col xs={3} sm={3} lg={3}/>
+                        <Col xs={1} sm={1} lg={1}>
+                            <div className="sensor_bg">{this.state.sh_name} 1 :
+                                {this.setstatusdata(this.props.status.results.working1)}
+                                {this.setrealtimedata(this.props.status.results.running1)}
+                            </div>
+                        </Col>
+                    </Row>
+
+                </div>
+              </Row>
           </Row>
-
         </Grid>
-
-
-        </div>
+      </div>
 
 
     );
@@ -181,7 +278,7 @@ const mapDispatchToprops = (dispatch) =>{
                 type: "FETCH_STATUS",
                 payload :new Promise((resolve,reject) => {
                     setTimeout(()=>{
-                        resolve(axios.get('https://petrological-separa.000webhostapp.com/api/status')
+                        resolve(axios.get(url+'/status')
                             .then(res => {
                                 console.log(res.data);
                                 return res.data })

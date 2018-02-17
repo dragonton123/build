@@ -1,0 +1,21 @@
+
+.circle{
+  text-align : center;
+  font-size: 100%;
+  font-style: inherit;
+  align-items: center;
+  border-radius : 25px;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  width: 100%;
+  height: 150px;
+}
+.name{
+  padding-left: 10px;
+  float: left;
+}
+.bar{
+  height: 50px;
+  padding-right: 50px;
+  padding-top: 5px
+}

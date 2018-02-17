@@ -11,6 +11,10 @@ import {Clearfix,Grid,Col,Row,Tabs, Tab, TabContainer, TabContent, TabPane, NavI
 
 
 
+//const location = this.props.location;
+//const params = this.props.match.params;
+
+
 var MenuWrap = React.createClass({
 
     getInitialState() {
@@ -48,13 +52,15 @@ class rootData extends Component {
             side: 'left',
             hidden: true,
             name: 'esp_ss_1',
-            show_name:'SENSOR 1',
+            show_name:'เซนเซอร์ 1',
+            show_name_en:'SENSOR 1',
             type: 'chart'
         };
     };
-    setname(value,sh_name){
-      this.setState({     name : value,
-                      show_name: sh_name
+    setname(value,sh_name,sh_name_en){
+      this.setState({       name : value,
+                        show_name: sh_name,
+                     show_name_en: sh_name_en,
                     });
 
     }
@@ -77,37 +83,48 @@ class rootData extends Component {
             },
             bmCrossButton: {
                 height: '24px',
-                width: '24px'
+                width: '24px',
+                marginRight: '150px'
             },
             bmCross: {
-                background: '#bdc3c7'
+                background: '#bdc3c7',
             },
             bmMenu: {
                 background: '#373a47',
-                padding: '2.5em 1.5em 0',
-                fontSize: '1.15em'
+                padding: '2.5em 0',
+                fontSize: '1.15em',
+                width:'150px'
             },
             bmMorphShape: {
                 fill: '#373a47'
             },
             bmItemList: {
                 color: '#b8b7ad',
-                padding: '0.8em'
+                //padding: '0.8em'
+
             },
             bmOverlay: {
                 background: 'rgba(0, 0, 0, 0.3)'
             }
         };
+        var type = this.props.location.param;
+        if((type !== undefined)){
+            if(this.props.location.param !== this.state.type){
+                var type = this.props.location.param;
+                this.setState({
+                    type:type
+                });
+            }
+        }
         let show;
+
         if(this.state.type === "chart"){
-            show = <ChartComponent name={this.state.name} show_name={this.state.show_name}/>
+            show = <ChartComponent name={this.state.name} show_name={this.state.show_name} show_name_en={this.state.show_name_en}/>
 
         }else if(this.state.type === "table"){
-            show = <DataComponent name={this.state.name} show_name={this.state.show_name}/>
+            show = <DataComponent name={this.state.name} show_name={this.state.show_name} show_name_en={this.state.show_name_en}/>
 
         }
-
-
         return (
             <MenuWrap wait={20}>
 
@@ -117,23 +134,17 @@ class rootData extends Component {
                     pageWrapId={'page-wrap'}
                     outerContainerId={'outer-container'}
                 >
-                <a key="1" onClick={()=>this.setname("esp_ss_1","SENSOR 1")}><Link to="/data"className="acolor">SENSOR 1</Link></a>
-                <a key="2" onClick={()=>this.setname("esp_ss_2","SENSOR 2")}><Link to="/data"className="acolor">SENSOR 2</Link></a>
-                <a key="3" onClick={()=>this.setname("esp_ss_3","SENSOR 3")}><Link to="/data"className="acolor">SENSOR 3</Link></a>
-                <a key="4" onClick={()=>this.setname("esp_ss_4","SENSOR 4")}><Link to="/data"className="acolor">SENSOR 4</Link></a>
-                <a key="5" onClick={()=>this.setname("esp_ss_5","SENSOR 5")}><Link to="/data"className="acolor">SENSOR 5</Link></a>
-                <a key="6" onClick={()=>this.setname("esp_ss_6","SENSOR 6")}><Link to="/data"className="acolor">SENSOR 6</Link></a>
-                <a key="7" onClick={()=>this.setname("esp_ss_7","SENSOR 7")}><Link to="/data"className="acolor">SENSOR 7</Link></a>
+                <a key="1" onClick={()=>this.setname("esp_ss_1","เซนเซอร์ 1","SENSOR 1")}><Link to="/data"className="acolor">เซนเซอร์ 1</Link></a>
+                <a key="2" onClick={()=>this.setname("esp_ss_2","เซนเซอร์ 2","SENSOR 2")}><Link to="/data"className="acolor">เซนเซอร์ 2</Link></a>
+                <a key="3" onClick={()=>this.setname("esp_ss_3","เซนเซอร์ 3","SENSOR 3")}><Link to="/data"className="acolor">เซนเซอร์ 3</Link></a>
+                <a key="4" onClick={()=>this.setname("esp_ss_4","เซนเซอร์ 4","SENSOR 4")}><Link to="/data"className="acolor">เซนเซอร์ 4</Link></a>
+                <a key="5" onClick={()=>this.setname("esp_ss_5","เซนเซอร์ 5","SENSOR 5")}><Link to="/data"className="acolor">เซนเซอร์ 5</Link></a>
+                <a key="6" onClick={()=>this.setname("esp_ss_6","เซนเซอร์ 6","SENSOR 6")}><Link to="/data"className="acolor">เซนเซอร์ 6</Link></a>
+                <a key="7" onClick={()=>this.setname("esp_ss_7","เซนเซอร์ 7","SENSOR 7")}><Link to="/data"className="acolor">เซนเซอร์ 7</Link></a>
+                <a key="8" onClick={()=>this.setname("esp_ss_8","เซนเซอร์ 8","SENSOR 8")}><Link to="/data"className="acolor">เซนเซอร์ 8</Link></a>
                </Menu>
                 <div>
                  <Grid>
-                     <Row className="show-grid">
-
-                         <Col className = "tablelayout"visibleLg lg={12} xs={12} >
-                             <button onClick={()=>this.settype('chart')}>กราฟ</button>
-                             <button onClick={()=>this.settype('table')}>ตาราง</button>
-                         </Col>
-                     </Row>
                      <Row className="show-grid">
                          <Col className = "tablelayout"visibleLg lg={12} xs={12} >
                              {show}
@@ -141,11 +152,7 @@ class rootData extends Component {
                      </Row>
                 </Grid>
                 </div>
-
             </MenuWrap>
-
-          //  {this.props.children}
-
         );
     }
 };

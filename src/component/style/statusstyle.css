@@ -1,13 +1,14 @@
 
-.on {
-  background: rgb(183, 10, 56);
+.online {
+  background: rgb(45, 211, 37);
   border-radius: 100%;
   display: inline-block;
   height: 20px;
   width: 20px;
-  margin-left:4px;
+  margin-left: 10px;
+  padding-top: 10px;
 }
-.off {
+.offline {
   background: rgb(211, 211, 211);
   border-radius: 100%;
   display: inline-block;
@@ -16,8 +17,17 @@
   margin-left: 10px;
   padding-top: 10px;
 }
+.status_auto {
+  background: rgb(211, 49, 52);
+  border-radius: 100%;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
+  padding-top: 10px;
+}
 .ac1 {
-  background: rgb(124, 211, 112);
+  background: rgb(47, 51, 196);
   border-radius: 100%;
   display: inline-block;
   height: 20px;
@@ -26,7 +36,7 @@
   padding-top: 10px;
 }
 .ac2 {
-  background: rgb(211, 83, 88);
+  background: rgb(211, 211, 211);
   border-radius: 100%;
   display: inline-block;
   height: 20px;
@@ -39,16 +49,6 @@
     padding-left: 50px;
     padding-right: 50px;
 }
-.name{
-  padding-left: 50px;
-  padding-right: 5px;
-  float: left;
-}
-.bar{
-  height: 50px;
-  padding-right: 50px;
-  padding-top: 5px
-}
 .image{
   height: 1200px;
   width: 800px;
@@ -59,9 +59,63 @@
 }
 
 .fb {
-  align-self: center;
-  background-image: url('../image/farm1.png');
-  height: 1200px;
-  width: 800px;
-  background-size: contain;
+  align-item: center;
+
+  background-image: url('../image/map.png');
+  height: 1500px;
+  width: 1000px;
+  background-size: 100%;
+  margin-left: 6%;
+  margin-right: 6%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  border-radius: 10px;
+
+ // padding-left: 500px;
+}
+.fbcircle{
+  text-align : center;
+  font-size: 130%;
+  font-style: inherit;
+  align-items: center;
+  border-radius : 25px;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  margin-right: 50%;
+  width: 1170px;
+  height: 100%;
+}
+.manualcircle{
+  text-align : center;
+  font-size: 90%;
+  font-style: inherit;
+  align-items: center;
+  border-radius : 25px;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+.sensor_bg{
+  //text-align: center;
+  background-image: url('../image/speech-bubble-md.png');
+  //background-color: #686868;
+  color: #222222;
+  height: 100px;
+  width: 220px;
+  background-size: 100%;
+  font-size: 25px;
+
+  margin-left: 6%;
+  padding-top: 10px;
+  padding-right: 15px;
+  margin-right: 6%;
+  margin-top: 5%;
+
+
+}
+.manual_style{
+  text-align: left;
+  font-size: 25px;
+  padding-left: 25px;
 }

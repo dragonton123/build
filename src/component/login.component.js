@@ -9,7 +9,7 @@ import icuser from './image/user.png';
 import icpass from './image/pass.png';
 import './style/body.css';
 
-
+const url = localStorage.getItem("url");
 class LoginComponent extends React.Component {
     constructor(props){
         super(props);
@@ -52,8 +52,10 @@ class LoginComponent extends React.Component {
     render() {
         if( localStorage.getItem("session") !== (this.props.user.resultuser.results) ){
             console.log("ok");
+            localStorage.setItem("url","http://103.253.72.69:10001/api");
             localStorage.setItem("session", (this.props.user.resultuser.results) );
-            this.props.setDataUser(localStorage.getItem("session"));
+            window.location.reload();
+            //this.props.setDataUser(localStorage.getItem("session"));
         }
         return (
             <div className="body1">
@@ -111,7 +113,8 @@ const mapDispatchToprops = (dispatch) =>{
                 type: "FETCH_USER",
                 payload :new Promise((resolve,reject) => {
                     setTimeout(()=>{
-                        resolve(axios.get('http://unmannerly-fence.000webhostapp.com/00webhost_farmpassion/apilogin.php', {
+                        // resolve(axios.get('http://unmannerly-fence.000webhostapp.com/00webhost_farmpassion/apilogin.php', {
+                        resolve(axios.get('http://103.253.72.69:10001/api/login', {
                             params: {
                                 uname: username,
                                 pass: password

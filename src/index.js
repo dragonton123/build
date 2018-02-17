@@ -10,6 +10,7 @@ import axios from 'axios';
 import promise from 'redux-promise-middleware';
 import rootReducer from './reducer/index.js';
 import * as jwtDecode from 'jwt-decode';
+import  logger  from 'redux-logger';
 //import {promise} from 'react-promise';
 /*
 Router
@@ -19,6 +20,8 @@ import {ConnectedRouter,routerMiddleware} from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import routers from './router';
 //
+//url set
+localStorage.setItem("url","http://103.253.72.69:10001/api");
 var session = localStorage.getItem("session")
 console.log("SESSION : " + session);
 if( session !== null){
@@ -41,13 +44,13 @@ const myLogger = (store) => (next) => (action) =>{
 const store = createStore(rootReducer,
                                   {},
                             applyMiddleware(
-                              myLogger,
+                              logger,
                               middleware,
                               promise()));
 
-store.subscribe(() => {
-  console.log(store.getState());
-})
+// store.subscribe(() => {
+//   console.log(store.getState());
+// })
 
 store.dispatch(
   {
@@ -86,20 +89,20 @@ store.dispatch(
 //   }
 // )
 
-store.dispatch(
-  {
-    type: "FETCH_REAL",
-    payload :new Promise((resolve,reject) => {
-      setTimeout(()=>{
-        resolve(axios.get('https://petrological-separa.000webhostapp.com/apireal.php')
-          .then(res => {
-            console.log(res.data);
-            return res.data })
-          .catch(err => { throw err; }));
-      },20000);
-    })
-  }
-)
+// store.dispatch(
+//   {
+//     type: "FETCH_REAL",
+//     payload :new Promise((resolve,reject) => {
+//       setTimeout(()=>{
+//         resolve(axios.get('https://petrological-separa.000webhostapp.com/apireal.php')
+//           .then(res => {
+//             console.log(res.data);
+//             return res.data })
+//           .catch(err => { throw err; }));
+//       },20000);
+//     })
+//   }
+// )
 
 
 ReactDOM.render(

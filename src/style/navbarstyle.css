@@ -1,7 +1,30 @@
 .ared {
   color : #003300;
+  font-size: 25px;
+
 }
 .ared:hover{
-  color : green;
+  color : #003300;
   text-decoration: underline;
+}
+
+.dropdown {
+  color : #003300;
+  font-size: 25px;
+  align-items: right;
+}
+.dropdown:hover{
+  color : #003300;
+  text-decoration: underline;
+}
+
+
+.footer{
+  background-color: #cccccc;
+  position: fixed;
+  height: 100px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
 }

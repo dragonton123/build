@@ -22,6 +22,18 @@ body{
   margin: -10px;
 
 }
+.App-line_QRcode {
+    color: #0f0f0f;
+    height: 90px;
+    margin: 5px;
+
+}
+.App-line_button {
+
+
+    margin: 5px;
+
+}
 
 .App-header {
   height: 70px;
@@ -31,6 +43,7 @@ body{
 }
 .App-body{
   padding-top: 55px;
+  padding-bottom: 120px;
 }
 .App-sidebar{
   padding-top: 110px;
